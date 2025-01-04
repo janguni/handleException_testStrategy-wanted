@@ -1,14 +1,21 @@
 package com.example.payment.repository;
 
-import com.example.payment.repository.dto.PortOnePaymentRequest;
-import com.example.payment.repository.dto.PortOnePaymentResponse;
-import org.springframework.stereotype.Component;
+import com.example.payment.repository.dto.PortOneCheckSinglePaymentResponse;
 
-@Component
-public class PortOneHttpRepository {
-	public Object requestPayment(PortOnePaymentRequest request) {
-		// TODO: reginClient 사용해서 요청 보내기
-		PortOnePaymentResponse response = null;
-		return response;
-	}
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+
+
+@FeignClient(name = "PortOneOpenFeign", url = "${portone.api.uri}")
+public interface PortOneHttpRepository {
+
+	// 결제내역 단건조회 API
+	@GetMapping("/payments/{imp_uid}")
+	PortOneCheckSinglePaymentResponse getPayment(@RequestHeader String impPid);
+
+
+	// 결제취소 API
+//	public void cancelPayment() {}
+
 }

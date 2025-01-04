@@ -2,11 +2,10 @@ package com.example.payment.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,26 +18,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Payment {
+public class Order {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	private String impUid;
-	private Integer amount;
-	private String status;
+	private String id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "member_Id")
 	private Member member;
 
+	private Integer totalAmount;
 
-	// 결제 승인
-	@Builder
-	public Payment(String impUid, Integer amount) {
-		this.impUid = impUid;
-		this.amount = amount;
-		this.status = "paid";
-	}
+	private String items;
+
+	private String status;
+
+
 }
