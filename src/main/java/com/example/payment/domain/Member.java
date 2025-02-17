@@ -1,5 +1,6 @@
 package com.example.payment.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Builder
 public class Member {
 	@Id
+	@Column(name = "member_id")
 	private Long id;
 
 	@OneToOne

@@ -33,7 +33,6 @@ public class Payment {
 	@JoinColumn(name = "member_Id")
 	private Member member;
 
-
 	// 결제 승인
 	@Builder
 	public Payment(String impUid, Integer amount) {

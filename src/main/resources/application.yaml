@@ -11,7 +11,14 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        auto_quote_keyword: true
+        auto_quote_keyword: trues
+    # 애플리케이션 실행 시 기초 데이터 삽입s
+    defer-datasource-initialization: true
+  # 모든 데이터베이스에 sql 스크립트를 동작
+  sql:
+    init:
+      mode: always
+
 
 logging:
   level:

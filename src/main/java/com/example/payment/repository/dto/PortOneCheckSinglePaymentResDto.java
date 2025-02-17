@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class PortOneCheckSinglePaymentResponse {
+public class PortOneCheckSinglePaymentResDto {
 	private String imp_uid;
 	private String merchant_uid;
 	private Integer amount;
