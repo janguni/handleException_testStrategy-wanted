@@ -1,9 +1,12 @@
-package com.example.payment.infrastructure.controller.dto;
+package com.example.payment.infrastructure.controller.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ *  웹훅 이벤트 요청
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

@@ -31,20 +31,15 @@ public class Order {
 	private Member member;
 
 	private Integer totalAmount;
-
 	private String items;
-
 	private String status;
 
 	// 결제 승인 전 금액 일치 확인
 	public boolean isPossiblePayment(Integer amount) {
-
 		if (amount == null || this.totalAmount == null) {
 			return false;
 		}
-
 		return this.totalAmount.equals(amount);
-
 	}
 
 
